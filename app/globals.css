@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 196 30% 95%;
+    --foreground: 196 75% 16%;
+    --card: 196 30% 97%;
+    --card-foreground: 196 75% 16%;
+    --popover: 196 30% 97%;
+    --popover-foreground: 196 75% 16%;
+    --primary: 196 75% 16%;
+    --primary-foreground: 196 30% 97%;
+    --secondary: 196 30% 90%;
+    --secondary-foreground: 196 75% 16%;
+    --muted: 196 30% 92%;
+    --muted-foreground: 196 45% 35%;
+    --accent: 196 30% 90%;
+    --accent-foreground: 196 75% 16%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 196 30% 97%;
+    --border: 196 30% 90%;
+    --input: 196 30% 90%;
+    --ring: 196 75% 16%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 200 45% 5%;
+    --foreground: 120 17% 68%;
+    --card: 200 45% 5%;
+    --card-foreground: 120 17% 68%;
+    --popover: 200 45% 5%;
+    --popover-foreground: 120 17% 68%;
+    --primary: 120 17% 68%;
+    --primary-foreground: 200 45% 5%;
+    --secondary: 200 45% 10%;
+    --secondary-foreground: 120 17% 68%;
+    --muted: 200 45% 10%;
+    --muted-foreground: 120 17% 58%;
+    --accent: 200 45% 10%;
+    --accent-foreground: 120 17% 68%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 120 17% 68%;
+    --border: 200 45% 10%;
+    --input: 200 45% 10%;
+    --ring: 120 17% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .toast {
+    @apply bg-card border-border;
+  }
+  
+  .toast[data-state='open'] {
+    @apply animate-in slide-in-from-bottom-full;
+  }
+  
+  .toast[data-state='closed'] {
+    @apply animate-out fade-out-80;
+  }
+  
+  .toast[data-swipe='move'] {
+    @apply translate-x-[var(--radix-toast-swipe-move-x)] transition-none;
+  }
+  
+  .toast[data-swipe='cancel'] {
+    @apply translate-x-0 transition-[transform_200ms_ease-out];
+  }
+  
+  .toast[data-swipe='end'] {
+    @apply animate-out slide-out-to-right;
+  }
+}
