@@ -14,11 +14,12 @@ interface PopularCitiesProps {
 
 const POPULAR_CITIES = [
   { name: "Istanbul", country: "Turkey" },
+  { name: "Samsun", country: "Turkey" },
+  { name: "Kocaeli", country: "Turkey" },
   { name: "London", country: "UK" },
   { name: "New York", country: "USA" },
   { name: "Tokyo", country: "Japan" },
   { name: "Paris", country: "France" },
-  { name: "Sydney", country: "Australia" },
   { name: "Rome", country: "Italy" },
 ];
 
