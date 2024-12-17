@@ -52,7 +52,7 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        NavButton: (props: any) => {
+        Button: (props: any) => {
           if (props.dir === "prev") {
             return <ChevronLeft className="h-4 w-4" />;
           }
