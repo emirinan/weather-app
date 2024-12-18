@@ -15,10 +15,10 @@ export default function Home() {
   const { weather, forecast, loading, fetchWeather } = useWeather();
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="flex flex-col min-h-screen bg-background text-foreground">
       <LanguageToggle />
       <ThemeToggle />
-      <div className="min-h-screen py-8 px-4">
+      <div className="flex-grow py-8 px-4">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
