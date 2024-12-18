@@ -2,48 +2,57 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { WeatherData } from "@/lib/weather";
-import { Cloud, Droplets, Thermometer, Wind, Compass, Gauge } from "lucide-react";
+import {
+  Cloud,
+  Droplets,
+  Thermometer,
+  Wind,
+  Compass,
+  Gauge,
+} from "lucide-react";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useTranslations } from "next-intl";
 
 interface WeatherCardProps {
   data: WeatherData;
 }
 
 export function WeatherCard({ data }: WeatherCardProps) {
+  const t = useTranslations("weather.metrics");
   const weatherMetrics = [
     {
       icon: <Thermometer className="w-6 h-6" />,
-      label: "Temperature",
+      label: t("temperature"),
       value: `${Math.round(data.main.temp)}°C`,
-      detail: `Feels like ${Math.round(data.main.feels_like)}°C`,
+      detail: t("feelsLike", { temp: Math.round(data.main.feels_like) }),
     },
     {
       icon: <Cloud className="w-6 h-6" />,
-      label: "Condition",
+      label: t("condition"),
       value: data.weather[0].main,
       detail: data.weather[0].description,
     },
     {
       icon: <Droplets className="w-6 h-6" />,
-      label: "Humidity",
+      label: t("humidity"),
       value: `${data.main.humidity}%`,
-      detail: "Relative humidity",
+      detail: t("humidityDetail"),
     },
     {
       icon: <Wind className="w-6 h-6" />,
-      label: "Wind Speed",
+      label: t("windSpeed"),
       value: `${data.wind.speed} m/s`,
-      detail: "Current wind speed",
+      detail: t("windSpeedDetail"),
     },
     {
       icon: <Gauge className="w-6 h-6" />,
-      label: "Pressure",
+      label: t("pressure"),
       value: `${data.main.pressure} hPa`,
-      detail: "Atmospheric pressure",
+      detail: t("pressureDetail"),
     },
   ];
 
@@ -84,9 +93,7 @@ export function WeatherCard({ data }: WeatherCardProps) {
                   </div>
                 </div>
               </HoverCardTrigger>
-              <HoverCardContent>
-                {metric.detail}
-              </HoverCardContent>
+              <HoverCardContent>{metric.detail}</HoverCardContent>
             </HoverCard>
           ))}
         </div>

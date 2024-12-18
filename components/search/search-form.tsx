@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface SearchFormProps {
   onSearch: (city: string) => Promise<void>;
@@ -11,6 +12,7 @@ interface SearchFormProps {
 }
 
 export function SearchForm({ onSearch, loading }: SearchFormProps) {
+  const t = useTranslations("search");
   const [city, setCity] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,13 +24,13 @@ export function SearchForm({ onSearch, loading }: SearchFormProps) {
     <form onSubmit={handleSubmit} className="flex gap-2">
       <Input
         type="text"
-        placeholder="Enter city name..."
+        placeholder={t("placeholder")}
         value={city}
         onChange={(e) => setCity(e.target.value)}
         className="flex-1 bg-background/70"
       />
-      <Button 
-        type="submit" 
+      <Button
+        type="submit"
         disabled={loading}
         className="bg-primary text-primary-foreground hover:bg-primary/80"
       >
@@ -37,7 +39,7 @@ export function SearchForm({ onSearch, loading }: SearchFormProps) {
         ) : (
           <>
             <Search className="w-4 h-4 mr-2" />
-            Search
+            {t("button")}
           </>
         )}
       </Button>

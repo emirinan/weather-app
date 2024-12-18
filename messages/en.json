@@ -1,0 +1,32 @@
+{
+  "app": {
+    "title": "Weather App",
+    "description": "Get real-time weather updates and forecasts for any city worldwide",
+    "current": "Current Weather",
+    "forecast": "5-Day Forecast"
+  },
+  "search": {
+    "placeholder": "Enter city name...",
+    "button": "Search",
+    "recentTitle": "Recent Searches",
+    "clearAll": "Clear All",
+    "removeTooltip": "Remove from recent searches",
+    "clearTooltip": "Clear all recent searches",
+    "hover": "Wiew weather in"
+  },
+  "weather": {
+    "current": "Current Weather",
+    "forecast": "5-Day Forecast",
+    "metrics": {
+      "temperature": "Temperature",
+      "feelsLike": "Feels like {temp}°C",
+      "condition": "Condition",
+      "humidity": "Humidity",
+      "humidityDetail": "Relative humidity",
+      "windSpeed": "Wind Speed",
+      "windSpeedDetail": "Current wind speed",
+      "pressure": "Pressure",
+      "pressureDetail": "Atmospheric pressure"
+    }
+  }
+}

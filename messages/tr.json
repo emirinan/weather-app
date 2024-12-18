@@ -1,0 +1,44 @@
+{
+  "app": {
+    "title": "Hava Durumu Uygulaması",
+    "description": "Dünya genelinde şehirler için gerçek zamanlı hava durumu ve tahminleri alın",
+    "current": "Mevcut Hava Durumu",
+    "forecast": "5 Günlük Tahmin"
+  },
+  "search": {
+    "placeholder": "Şehir adı girin...",
+    "button": "Ara",
+    "recentTitle": "Son Aramalar",
+    "clearAll": "Tümünü Temizle",
+    "removeTooltip": "Son aramalardan kaldır",
+    "clearTooltip": "Tüm son aramaları temizle",
+    "hover": "Hava durumunu görüntüle"
+  },
+  "weather": {
+    "current": "Mevcut Hava Durumu",
+    "forecast": "5 Günlük Tahmin",
+    "metrics": {
+      "temperature": "Sıcaklık",
+      "feelsLike": "Hissedilen {temp}°C",
+      "condition": "Durum",
+      "humidity": "Nem",
+      "humidityDetail": "Nem oranı",
+      "windSpeed": "Rüzgar Hızı",
+      "windSpeedDetail": "Mevcut rüzgar hızı",
+      "pressure": "Basınç",
+      "pressureDetail": "Atmosfer basıncı"
+    }
+  },
+  "toast": {
+    "error": "Hata",
+    "success": "Başarılı",
+    "cityRequired": "Lütfen bir şehir adı girin",
+    "dataLoaded": "{city} için hava durumu verileri yüklendi",
+    "fetchError": "Hava durumu verileri alınamadı. Lütfen tekrar deneyin."
+  },
+  "notFound": {
+    "title": "404 - Sayfa Bulunamadı",
+    "description": "İstenen kaynak bulunamadı",
+    "returnHome": "Ana Sayfaya Dön"
+  }
+}

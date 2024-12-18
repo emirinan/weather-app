@@ -7,22 +7,26 @@ import { WeatherCard } from "@/components/weather-card";
 import { Forecast } from "@/components/forecast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useWeather } from "@/lib/hooks/use-weather";
+import { useTranslations } from "next-intl";
+import { LanguageToggle } from "@/components/language-toggle";
 
 export default function Home() {
+  const t = useTranslations("app");
   const { weather, forecast, loading, fetchWeather } = useWeather();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <LanguageToggle />
       <ThemeToggle />
       <div className="min-h-screen py-8 px-4">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
               <SunMedium className="w-12 h-12 text-yellow-500 animate-spin-slow" />
-              <h1 className="text-5xl font-bold">Weather Forecast</h1>
+              <h1 className="text-5xl font-bold">{t("title")}</h1>
             </div>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Get real-time weather updates and forecasts for any city worldwide
+              {t("description")}
             </p>
           </div>
 
@@ -35,13 +39,13 @@ export default function Home() {
                   value="current"
                   className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary transition-colors hover:bg-background/80"
                 >
-                  Current Weather
+                  {t("current")}
                 </TabsTrigger>
                 <TabsTrigger
                   value="forecast"
                   className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary transition-colors hover:bg-background/80"
                 >
-                  5-Day Forecast
+                  {t("forecast")}
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="current" className="mt-4">
@@ -54,6 +58,14 @@ export default function Home() {
           )}
         </div>
       </div>
+      <footer className="text-center py-4">
+        <p className="text-muted-foreground font-light text-sm">
+          Made with <span className="animate-pulse">❤️</span> by{" "}
+          <a href="https://github.com/emirinan" className="underline">
+            Emir Inan
+          </a>
+        </p>
+      </footer>
     </main>
   );
 }

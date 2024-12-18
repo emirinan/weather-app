@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useTranslations } from "next-intl";
 
 interface ForecastProps {
   data: ForecastData;
@@ -18,11 +19,12 @@ export function Forecast({ data }: ForecastProps) {
   const dailyForecast = data.list
     .filter((_, index) => index % 8 === 0)
     .slice(0, 5);
+  const t = useTranslations("weather");
 
   return (
     <Card className="w-full bg-card/50">
       <CardHeader>
-        <CardTitle>5-Day Forecast</CardTitle>
+        <CardTitle>{t("forecast")}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-5 gap-4">

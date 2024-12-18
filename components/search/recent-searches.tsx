@@ -9,12 +9,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useTranslations } from "next-intl";
 
 interface RecentSearchesProps {
   onCitySelect: (city: string) => Promise<void>;
 }
 
 export function RecentSearches({ onCitySelect }: RecentSearchesProps) {
+  const t = useTranslations("search");
   const { recentSearches, removeSearch, clearSearches } = useRecentSearches();
 
   if (recentSearches.length === 0) return null;
@@ -22,7 +24,7 @@ export function RecentSearches({ onCitySelect }: RecentSearchesProps) {
   return (
     <div className="space-y-3">
       <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
-        <Clock className="w-4 h-4" /> Recent Searches
+        <Clock className="w-4 h-4" /> {t("recentTitle")}
       </h3>
       <div className="flex flex-wrap gap-2">
         {recentSearches.map((city) => (
@@ -48,7 +50,7 @@ export function RecentSearches({ onCitySelect }: RecentSearchesProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Remove from recent searches</p>
+                  <p>{t("removeTooltip")}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -66,11 +68,11 @@ export function RecentSearches({ onCitySelect }: RecentSearchesProps) {
                 className="h-8 px-2 text-muted-foreground hover:text-destructive"
               >
                 <Trash2 className="h-4 w-4 mr-2" />
-                Clear All
+                {t("clearAll")}
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Clear all recent searches</p>
+              <p>{t("clearTooltip")}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
